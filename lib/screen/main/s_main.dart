@@ -1,6 +1,8 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:fast_app_base/data/memory/vo_todo.dart';
 import 'package:fast_app_base/screen/main/tab/tab_item.dart';
 import 'package:fast_app_base/screen/main/tab/tab_navigator.dart';
+import 'package:fast_app_base/screen/main/write/d_write_todo.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/common.dart';
@@ -52,8 +54,23 @@ class MainScreenState extends State<MainScreen>
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(EvaIcons.plus),
+          onPressed: () async {
+            context.holder.addTodo();
+            // final result = await WriteTodoDialog().show();
+            // if (result != null && mounted) {
+            //   // TodoDataHolder.of(context).notifier.addTodo(
+            //   context.holder.notifier.addTodo(
+            //         Todo(
+            //           id: DateTime.now().microsecondsSinceEpoch,
+            //           title: result.text,
+            //           dueDate: result.dateTime,
+            //         ),
+            //       );
+            //   // debugPrint(result.text);
+            //   // debugPrint(result.dateTime.formattedDate);
+            // }
+          },
+          child: const Icon(EvaIcons.plus),
         ),
         bottomNavigationBar: _buildBottomNavigationBar(context),
       ),
